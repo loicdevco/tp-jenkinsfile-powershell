@@ -12,9 +12,7 @@ pipeline {
         APP_NAME = 'demo-powershell'
         BUILD_DIR = 'build-output'
         PACKAGE_DIR = 'package'
-        if ($content -notmatch "Version\s*:\s*$env:EXPECTED_VERSION") {
-throw "La version attendue n’est pas présente."
-}
+
     }
 
     stages {
