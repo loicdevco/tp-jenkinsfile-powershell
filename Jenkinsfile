@@ -18,6 +18,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
+                Write-Host "Machine : $env:COMPUTERNAME"
+$PSVersionTable.PSVersion
+[System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+Get-Process |
+Sort-Object WorkingSet64 -Descending |
+Select-Object -First 5 Name, Id,
+@{Name='MemoryMB'; Expression={[math]::Round($_.WorkingSet64 / 1MB, 2)}} |
+Format-Table -AutoSize
             }
         }
 
